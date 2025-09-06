@@ -1,0 +1,313 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
+/* stylelint-enable at-rule-no-unknown */
+
+/* Portfolio Design System - Purple/Violet Theme */
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 84% 4.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 84% 4.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 84% 4.9%;
+
+        /* Primary purple/violet colors */
+        --primary: 259 100% 65%;
+        --primary-foreground: 0 0% 100%;
+
+        /* Secondary violet shades */
+        --secondary: 252 100% 97%;
+        --secondary-foreground: 259 100% 65%;
+
+        --muted: 252 100% 97%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 259 100% 65%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+        --ring: 259 100% 65%;
+
+        /* Custom portfolio colors */
+        --primary-gradient: linear-gradient(135deg, hsl(259, 100%, 65%), hsl(282, 100%, 70%));
+        --hero-gradient: linear-gradient(135deg, hsl(252, 100%, 97%), hsl(259, 100%, 98%));
+        --card-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(252, 100%, 99%));
+        --skill-icon-bg: hsl(259, 100%, 95%);
+        --skill-icon-color: hsl(259, 100%, 65%);
+
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --hover-scale: 1.05;
+        --shadow-elegant: 0 10px 30px -10px hsl(259, 100%, 65%, 0.2);
+        --shadow-card: 0 4px 20px -4px hsl(259, 100%, 65%, 0.1);
+
+        --radius: 0.5rem;
+
+        --sidebar-background: 0 0% 98%;
+
+        --sidebar-foreground: 240 5.3% 26.1%;
+
+        --sidebar-primary: 240 5.9% 10%;
+
+        --sidebar-primary-foreground: 0 0% 98%;
+
+        --sidebar-accent: 240 4.8% 95.9%;
+
+        --sidebar-accent-foreground: 240 5.9% 10%;
+
+        --sidebar-border: 220 13% 91%;
+
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+
+        --card: 222.2 84% 4.9%;
+        --card-foreground: 210 40% 98%;
+
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+
+        --primary: 259 100% 65%;
+        --primary-foreground: 0 0% 100%;
+
+        --secondary: 217.2 32.6% 17.5%;
+        --secondary-foreground: 210 40% 98%;
+
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+
+        --accent: 259 100% 65%;
+        --accent-foreground: 0 0% 100%;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 259 100% 65%;
+
+        --primary-gradient: linear-gradient(135deg, hsl(259, 100%, 65%), hsl(282, 100%, 70%));
+        --hero-gradient: linear-gradient(135deg, hsl(222, 84%, 8%), hsl(259, 50%, 12%));
+        --card-gradient: linear-gradient(135deg, hsl(222, 84%, 6%), hsl(259, 50%, 10%));
+        --skill-icon-bg: hsl(259, 100%, 15%);
+        --skill-icon-color: hsl(259, 100%, 65%);
+
+        --shadow-elegant: 0 10px 30px -10px hsl(259, 100%, 65%, 0.3);
+        --shadow-card: 0 4px 20px -4px hsl(259, 100%, 65%, 0.2);
+    }
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        cursor: none;
+        /* Hide default cursor */
+    }
+
+    * {
+        /* stylelint-disable-next-line at-rule-no-unknown */
+        @apply border-border;
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body {
+        /* stylelint-disable-next-line at-rule-no-unknown */
+        @apply bg-background text-foreground;
+        cursor: none;
+        /* Hide default cursor */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Custom cursor styles - production ready */
+    button,
+    a,
+    .hover-target {
+        cursor: none !important;
+    }
+
+    /* Show default cursor for form elements and touch devices */
+    input,
+    textarea,
+    select,
+    [contenteditable] {
+        cursor: text !important;
+    }
+
+    /* Touch device fallback - show default cursor */
+    @media (hover: none) and (pointer: coarse) {
+
+        html,
+        body {
+            cursor: auto;
+        }
+
+        button,
+        a,
+        .hover-target {
+            cursor: pointer !important;
+        }
+
+        input,
+        textarea,
+        select,
+        [contenteditable] {
+            cursor: text !important;
+        }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+
+        html,
+        body {
+            cursor: auto;
+        }
+
+        button,
+        a,
+        .hover-target {
+            cursor: pointer !important;
+        }
+    }
+
+    /* Magnetic hover effect styles */
+    button,
+    a,
+    .hover-target,
+    [role="button"] {
+        transition: transform 0.1s ease-out, all 0.3s ease;
+        will-change: transform;
+        /* Ensure elements can be transformed smoothly */
+        transform: translate(0px, 0px);
+    }
+
+    /* Custom cursor ring and dot styles */
+    .custom-cursor-ring {
+        position: fixed;
+        width: 32px;
+        height: 32px;
+        border: 1.5px solid rgba(139, 92, 246, 0.2);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.2s ease-out;
+        mix-blend-mode: difference;
+        will-change: transform;
+        /* Cross-browser compatibility */
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .custom-cursor-dot {
+        position: fixed;
+        width: 4px;
+        height: 4px;
+        background-color: rgba(139, 92, 246, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        mix-blend-mode: difference;
+        will-change: transform;
+        /* Cross-browser compatibility */
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+
+    .custom-cursor-glow {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        filter: blur(6px);
+        transition: width 0.2s ease, height 0.2s ease;
+        will-change: transform, width, height;
+        /* Cross-browser compatibility */
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@layer components {
+    .gradient-bg {
+        background: var(--hero-gradient);
+        position: relative;
+    }
+
+    .card-gradient {
+        background: var(--card-gradient);
+    }
+
+    .primary-gradient {
+        background: var(--primary-gradient);
+    }
+
+    .hover-scale {
+        transition: var(--transition-smooth);
+    }
+
+    .hover-scale:hover {
+        transform: scale(var(--hover-scale));
+    }
+
+    .shadow-elegant {
+        box-shadow: var(--shadow-elegant);
+    }
+
+    .shadow-card {
+        box-shadow: var(--shadow-card);
+    }
+
+    .skill-icon {
+        background: var(--skill-icon-bg);
+        color: var(--skill-icon-color);
+    }
+
+    /* Particles background styles */
+    #tsparticles {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+    }
+
+    /* Ensure content is above particles */
+    .content-above-particles {
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Additional utility classes */
+    .hover-target {
+        cursor: none !important;
+    }
+
+    /* Button hover effects */
+    .hover-scale:hover {
+        transform: scale(1.05);
+    }
+}
