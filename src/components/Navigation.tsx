@@ -39,11 +39,11 @@ const Navigation = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-background/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-primary">Jignesh Vankar</span>
+            <span className="text-lg sm:text-2xl font-bold text-primary">Jignesh Vankar</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -67,9 +67,9 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground"
+              className="text-foreground h-10 w-10"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
           </div>
         </div>
@@ -77,12 +77,12 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 backdrop-blur-md rounded-lg mt-2">
+            <div className="px-3 pt-3 pb-4 space-y-2 bg-background/95 backdrop-blur-md rounded-lg mt-2 border border-border/50">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href, item.external)}
-                  className="text-foreground hover:text-primary block px-3 py-2 text-base font-medium w-full text-left"
+                  className="text-foreground hover:text-primary hover:bg-accent/50 block px-3 py-2.5 text-sm font-medium w-full text-left rounded-md transition-colors duration-200"
                 >
                   {item.name}
                 </button>
