@@ -40,7 +40,7 @@ const Hero = () => {
         <div className="absolute top-32 left-1/2 w-1.5 h-1.5 bg-pink-500/40 rounded-full animate-particles-5"></div>
         <div className="absolute top-96 right-1/4 w-1 h-1 bg-orange-500/40 rounded-full animate-particles-6"></div>
       </div>
-
+n 
       <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12 sm:pb-16 relative z-10">
         <div className="min-h-[calc(100vh-5rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-20">
 
