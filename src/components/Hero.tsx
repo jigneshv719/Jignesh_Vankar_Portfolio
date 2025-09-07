@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen bg-transparent relative overflow-hidden">
       {/* Advanced 2025 Background System */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden hidden sm:block">
         {/* Floating Geometric Elements */}
         <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-float-slow"></div>
         <div className="absolute top-40 right-32 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl animate-float-delayed"></div>
@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="absolute top-96 right-1/4 w-1 h-1 bg-orange-500/40 rounded-full animate-particles-6"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-20 sm:pt-20 pb-16 sm:pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12 sm:pb-16 relative z-10">
         <div className="min-h-[calc(100vh-5rem)] sm:min-h-[calc(100vh-5rem)] flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 lg:gap-20">
 
           {/* Left Side - Main Content */}
@@ -128,7 +128,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Stats and Social */}
-          <div className="flex-1 lg:max-w-md">
+          <div className="flex-1 lg:max-w-md hidden lg:block">
 
             {/* Professional Stats Cards */}
             <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16 lg:mb-20 px-4 sm:px-0">
