@@ -24,7 +24,7 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -37,7 +37,22 @@ const Contact = () => {
       return;
     }
 
-    // Store submission locally
+    // Try server save first, then local fallback
+    let savedToServer = false;
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (res.ok) {
+        savedToServer = true;
+      }
+    } catch (error) {
+      // ignore, will fallback to local
+    }
+
+    // Store submission locally (always, so /contactdata loads even if offline)
     try {
       const existing = localStorage.getItem('contactSubmissions');
       const parsed = existing ? JSON.parse(existing) : [];
@@ -52,13 +67,15 @@ const Contact = () => {
       const updated = Array.isArray(parsed) ? [...parsed, newEntry] : [newEntry];
       localStorage.setItem('contactSubmissions', JSON.stringify(updated));
     } catch (error) {
-      console.error('Failed to store contact submission', error);
+      console.error('Failed to store contact submission locally', error);
     }
 
     // Feedback
     toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. Your details were saved locally.",
+      title: savedToServer ? "Message Sent!" : "Saved locally",
+      description: savedToServer
+        ? "Thanks! Your message was saved on the server."
+        : "No network/server. Your message was saved in this browser.",
     });
     
     // Reset form

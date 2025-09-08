@@ -16,15 +16,32 @@ const ContactData = () => {
   const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
 
   useEffect(() => {
-    try {
-      const existing = localStorage.getItem('contactSubmissions');
-      const parsed = existing ? JSON.parse(existing) : [];
-      if (Array.isArray(parsed)) {
-        setSubmissions(parsed);
+    (async () => {
+      // Try server first
+      try {
+        const res = await fetch('/api/contact');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data)) {
+            setSubmissions(data);
+            return;
+          }
+        }
+      } catch (error) {
+        // ignore and try local
       }
-    } catch (error) {
-      console.error('Failed to read submissions from localStorage', error);
-    }
+
+      // Fallback to localStorage
+      try {
+        const existing = localStorage.getItem('contactSubmissions');
+        const parsed = existing ? JSON.parse(existing) : [];
+        if (Array.isArray(parsed)) {
+          setSubmissions(parsed);
+        }
+      } catch (error) {
+        console.error('Failed to read submissions from localStorage', error);
+      }
+    })();
   }, []);
 
   const handleClear = () => {
