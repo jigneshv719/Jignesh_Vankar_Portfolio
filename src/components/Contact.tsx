@@ -10,6 +10,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
   
@@ -27,7 +28,7 @@ const Contact = () => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast({
         title: "Error",
         description: "Please fill in all fields",
@@ -36,16 +37,35 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
+    // Store submission locally
+    try {
+      const existing = localStorage.getItem('contactSubmissions');
+      const parsed = existing ? JSON.parse(existing) : [];
+      const newEntry = {
+        id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`,
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        createdAt: new Date().toISOString()
+      };
+      const updated = Array.isArray(parsed) ? [...parsed, newEntry] : [newEntry];
+      localStorage.setItem('contactSubmissions', JSON.stringify(updated));
+    } catch (error) {
+      console.error('Failed to store contact submission', error);
+    }
+
+    // Feedback
     toast({
       title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+      description: "Thank you for your message. Your details were saved locally.",
     });
     
     // Reset form
     setFormData({
       name: '',
       email: '',
+      subject: '',
       message: ''
     });
   };
@@ -79,7 +99,7 @@ const Contact = () => {
     {
       icon: Instagram,
       name: 'Instagram',
-      link: 'https://instagram.com/jigneshvankar'
+      link: 'https://www.instagram.com/vankar_jignesh_/'
     }
   ];
 
@@ -172,6 +192,21 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="your.email@example.com"
+                    className="border-primary/20 focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                    Subject
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="Subject of your message"
                     className="border-primary/20 focus:border-primary"
                   />
                 </div>
