@@ -50,7 +50,9 @@ const Contact = () => {
       }
     } catch (error) {
       // ignore, will fallback to local
-    }
+    }   
+
+    
 
     // Store submission locally (always, so /contactdata loads even if offline)
     try {
