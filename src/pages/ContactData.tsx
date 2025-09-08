@@ -17,18 +17,20 @@ const ContactData = () => {
 
   useEffect(() => {
     (async () => {
-      // Try server first
-      try {
-        const res = await fetch('/api/contact');
-        if (res.ok) {
-          const data = await res.json();
-          if (Array.isArray(data)) {
-            setSubmissions(data);
-            return;
+      // Try server first in production only
+      if (import.meta.env.PROD) {
+        try {
+          const res = await fetch('/api/contact');
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data)) {
+              setSubmissions(data);
+              return;
+            }
           }
+        } catch (error) {
+          // ignore and try local
         }
-      } catch (error) {
-        // ignore and try local
       }
 
       // Fallback to localStorage

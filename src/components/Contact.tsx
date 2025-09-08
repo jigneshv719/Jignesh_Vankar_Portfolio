@@ -39,18 +39,20 @@ const Contact = () => {
 
     // Try server save first, then local fallback
     let savedToServer = false;
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      if (res.ok) {
-        savedToServer = true;
+    if (import.meta.env.PROD) {
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        if (res.ok) {
+          savedToServer = true;
+        }
+      } catch (error) {
+        // ignore, will fallback to local
       }
-    } catch (error) {
-      // ignore, will fallback to local
-    }   
+    }
 
     
 
