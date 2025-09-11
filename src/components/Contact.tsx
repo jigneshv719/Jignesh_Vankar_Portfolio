@@ -179,7 +179,7 @@ const Contact = () => {
                     </a>
                   ))}
                 </div>
-              </CardContent>
+              </CardContent> 
             </Card>
           </div>
 
