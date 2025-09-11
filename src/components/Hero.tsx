@@ -86,12 +86,12 @@ n
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 dark:text-slate-300 mb-10 sm:mb-8 lg:mb-12 leading-[1.8] sm:leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
               I craft exceptional digital experiences with{' '}
-              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">clean code</span>{' '}
+              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">HTML/CSS</span>{' '}
               and{' '}
-              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">stunning design</span>.
+              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">JavaScript</span>.
               Expert in{' '}
               <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">WordPress</span>,{' '}
-              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">React</span>, and{' '}
+              <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">Php</span>, and{' '}
               <span className="text-slate-900 dark:text-white font-semibold hover:text-slate-700 dark:hover:text-slate-400 transition-colors cursor-pointer border-b-2 border-slate-900 dark:border-white/40 hover:border-slate-700 dark:hover:border-slate-400">Node.js</span>.
             </p>
 
