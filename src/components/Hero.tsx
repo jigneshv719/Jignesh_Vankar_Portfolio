@@ -81,7 +81,7 @@ n
               </h2>
 
 
-            </div>
+            </div> 
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-700 dark:text-slate-300 mb-10 sm:mb-8 lg:mb-12 leading-[1.8] sm:leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0 px-4 sm:px-0">
