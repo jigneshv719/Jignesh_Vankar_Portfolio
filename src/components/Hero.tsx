@@ -73,7 +73,7 @@ n
             <div className="mb-8 sm:mb-8 lg:mb-12">
               <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 sm:mb-6 flex items-center gap-2 sm:gap-4 justify-center lg:justify-start">
                 <span className="bg-gradient-to-r from-slate-800 via-blue-600 to-slate-800 dark:from-white dark:via-blue-400 dark:to-white bg-clip-text text-transparent font-medium tracking-wide">Full-Stack Developer</span>
-                <div className="flex gap-1 sm:gap-2">
+               <div className="flex gap-1 sm:gap-2">
                   <div className="w-2 sm:w-3 h-2 sm:h-3 bg-blue-500 rounded-full animate-bounce"></div>
                   <div className="w-2 sm:w-3 h-2 sm:h-3 bg-purple-500 rounded-full animate-bounce delay-100"></div>
                   <div className="w-2 sm:w-3 h-2 sm:h-3 bg-cyan-500 rounded-full animate-bounce delay-200"></div>
